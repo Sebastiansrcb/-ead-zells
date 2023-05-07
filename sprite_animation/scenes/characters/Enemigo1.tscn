@@ -1,0 +1,203 @@
+[gd_scene load_steps=48 format=2]
+
+[ext_resource path="res://Enemigo1/Deathe1 (6).png" type="Texture" id=1]
+[ext_resource path="res://Enemigo1/Attacke1 (6).png" type="Texture" id=2]
+[ext_resource path="res://Enemigo1/Deathe1 (1).png" type="Texture" id=3]
+[ext_resource path="res://Enemigo1/Deathe1 (4).png" type="Texture" id=4]
+[ext_resource path="res://Enemigo1/Attacke1 (2).png" type="Texture" id=5]
+[ext_resource path="res://Enemigo1/Attacke1 (3).png" type="Texture" id=6]
+[ext_resource path="res://Enemigo1/Attacke1 (5).png" type="Texture" id=7]
+[ext_resource path="res://Enemigo1/Deathe1 (5).png" type="Texture" id=8]
+[ext_resource path="res://Enemigo1/Deathe1 (3).png" type="Texture" id=9]
+[ext_resource path="res://Enemigo1/Attacke1 (1).png" type="Texture" id=10]
+[ext_resource path="res://Enemigo1/Deathe1 (2).png" type="Texture" id=11]
+[ext_resource path="res://Enemigo1/Attacke1 (4).png" type="Texture" id=12]
+[ext_resource path="res://Enemigo1/idel1e (2).png" type="Texture" id=13]
+[ext_resource path="res://Enemigo1/Walke1 (1).png" type="Texture" id=14]
+[ext_resource path="res://Enemigo1/Walke1 (6).png" type="Texture" id=15]
+[ext_resource path="res://Enemigo1/hurte1 (2).png" type="Texture" id=16]
+[ext_resource path="res://Enemigo1/Walke1 (3).png" type="Texture" id=17]
+[ext_resource path="res://Enemigo1/Walke1 (4).png" type="Texture" id=18]
+[ext_resource path="res://Enemigo1/Walke1 (5).png" type="Texture" id=19]
+[ext_resource path="res://Enemigo1/Walke1 (2).png" type="Texture" id=20]
+[ext_resource path="res://Enemigo1/idel1e (1).png" type="Texture" id=21]
+[ext_resource path="res://Enemigo1/idel1e (3).png" type="Texture" id=22]
+[ext_resource path="res://Enemigo1/idel1e (4).png" type="Texture" id=23]
+[ext_resource path="res://Enemigo1/hurte1 (1).png" type="Texture" id=24]
+[ext_resource path="res://Enemigo1/hurte1 (3).png" type="Texture" id=25]
+[ext_resource path="res://Enemigo1/hurte1 (4).png" type="Texture" id=26]
+[ext_resource path="res://scenes/characters/Enemigo1.gd" type="Script" id=27]
+
+[sub_resource type="CapsuleShape2D" id=22]
+radius = 26.0
+height = 0.0
+
+[sub_resource type="Animation" id=2]
+resource_name = "Ataque"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 21 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 7 ), ExtResource( 2 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Dead"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 21 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 3 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Hurt"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 21 ), ExtResource( 24 ), ExtResource( 16 ), ExtResource( 25 ), ExtResource( 26 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Idle"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 21 ), ExtResource( 13 ), ExtResource( 22 ), ExtResource( 23 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Walk"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 21 ), ExtResource( 14 ), ExtResource( 20 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 15 ) ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "Ataque"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "Dead"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "Hurt"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "Walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id=20]
+states/Ataque/node = SubResource( 7 )
+states/Ataque/position = Vector2( 387, 149.765 )
+states/Dead/node = SubResource( 8 )
+states/Dead/position = Vector2( 622.556, 265.667 )
+states/Hurt/node = SubResource( 9 )
+states/Hurt/position = Vector2( 827, 149.848 )
+states/Idle/node = SubResource( 10 )
+states/Idle/position = Vector2( 622.852, 151 )
+states/Walk/node = SubResource( 11 )
+states/Walk/position = Vector2( 623.412, 39 )
+transitions = [ "Idle", "Walk", SubResource( 12 ), "Idle", "Hurt", SubResource( 13 ), "Idle", "Dead", SubResource( 14 ), "Idle", "Ataque", SubResource( 15 ), "Hurt", "Idle", SubResource( 16 ), "Ataque", "Idle", SubResource( 17 ), "Walk", "Idle", SubResource( 18 ) ]
+start_node = "Idle"
+graph_offset = Vector2( 0, 71.6177 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=21]
+
+[node name="Enemigo1" type="KinematicBody2D"]
+position = Vector2( 0, -3 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -2, -6 )
+shape = SubResource( 22 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Ataque = SubResource( 2 )
+anims/Dead = SubResource( 3 )
+anims/Hurt = SubResource( 4 )
+anims/Idle = SubResource( 5 )
+anims/Walk = SubResource( 6 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 20 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 21 )
+
+[node name="Derecha" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 60, 0 )
+
+[node name="Izquierda" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( -60, 0 )
