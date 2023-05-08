@@ -1,0 +1,288 @@
+[gd_scene load_steps=80 format=2]
+
+[ext_resource path="res://scenes/characters/karateka.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/player/front1.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/player/frontkick6.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/player/frontkick5.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/player/frontkick1.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/player/frontkick3.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/player/puch3.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/player/puch5.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/player/puch6.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/player/front2.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/player/dead2.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/player/front4.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/player/dead3.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/player/frontkick2.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/player/front3.png" type="Texture" id=15]
+[ext_resource path="res://environment/PixelFantasy_Caves_1.0/background3.png" type="Texture" id=16]
+[ext_resource path="res://assets/sprites/player/front5.png" type="Texture" id=17]
+[ext_resource path="res://assets/sprites/player/puch1.png" type="Texture" id=18]
+[ext_resource path="res://assets/sprites/player/puch4.png" type="Texture" id=19]
+[ext_resource path="res://assets/sprites/player/puch7.png" type="Texture" id=20]
+[ext_resource path="res://assets/sprites/player/puch2.png" type="Texture" id=21]
+[ext_resource path="res://assets/sprites/player/front6.png" type="Texture" id=22]
+[ext_resource path="res://assets/sprites/player/frontkick4.png" type="Texture" id=23]
+[ext_resource path="res://assets/sprites/player/pose2.png" type="Texture" id=24]
+[ext_resource path="res://assets/sprites/player/pose3.png" type="Texture" id=25]
+[ext_resource path="res://assets/sprites/player/kick2.png" type="Texture" id=26]
+[ext_resource path="res://assets/sprites/player/kick3.png" type="Texture" id=27]
+[ext_resource path="res://assets/sprites/player/kick1.png" type="Texture" id=28]
+[ext_resource path="res://assets/sprites/player/kick7.png" type="Texture" id=29]
+[ext_resource path="res://assets/sprites/player/kick9.png" type="Texture" id=30]
+[ext_resource path="res://assets/sprites/player/kick10.png" type="Texture" id=31]
+[ext_resource path="res://assets/sprites/player/frontkick8.png" type="Texture" id=32]
+[ext_resource path="res://assets/sprites/player/frontkick7.png" type="Texture" id=33]
+[ext_resource path="res://assets/sprites/player/frontkick9.png" type="Texture" id=34]
+[ext_resource path="res://assets/sprites/player/kick4.png" type="Texture" id=35]
+[ext_resource path="res://assets/sprites/player/kick5.png" type="Texture" id=36]
+[ext_resource path="res://assets/sprites/player/kick8.png" type="Texture" id=37]
+[ext_resource path="res://assets/sprites/player/kick6.png" type="Texture" id=38]
+[ext_resource path="res://assets/sprites/player/frontkick10.png" type="Texture" id=39]
+[ext_resource path="res://assets/sprites/player/pose1.png" type="Texture" id=40]
+[ext_resource path="res://assets/sprites/player/roll3.png" type="Texture" id=41]
+[ext_resource path="res://assets/sprites/player/roll1.png" type="Texture" id=42]
+[ext_resource path="res://assets/sprites/player/roll2.png" type="Texture" id=43]
+[ext_resource path="res://assets/sprites/player/roll10.png" type="Texture" id=44]
+[ext_resource path="res://assets/sprites/player/roll8.png" type="Texture" id=45]
+[ext_resource path="res://assets/sprites/player/roll9.png" type="Texture" id=46]
+[ext_resource path="res://assets/sprites/player/roll7.png" type="Texture" id=47]
+[ext_resource path="res://assets/sprites/player/roll6.png" type="Texture" id=48]
+
+[sub_resource type="CapsuleShape2D" id=31]
+radius = 0.2375
+height = 0.725
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "Caminar"
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "Morir"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "Patada"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "PatadaFuerte"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "Pose"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "Puñete"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "Roll"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=29]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+
+[sub_resource type="AnimationNodeStateMachine" id=8]
+states/Caminar/node = SubResource( 11 )
+states/Caminar/position = Vector2( 178.5, 50.25 )
+states/Morir/node = SubResource( 12 )
+states/Morir/position = Vector2( 410.25, -4.5 )
+states/Patada/node = SubResource( 13 )
+states/Patada/position = Vector2( 630.5, 25.5 )
+states/PatadaFuerte/node = SubResource( 14 )
+states/PatadaFuerte/position = Vector2( 697, 181 )
+states/Pose/node = SubResource( 15 )
+states/Pose/position = Vector2( 620.25, 277.5 )
+"states/Puñete/node" = SubResource( 16 )
+"states/Puñete/position" = Vector2( 403.5, 310.626 )
+states/Roll/node = SubResource( 17 )
+states/Roll/position = Vector2( 126.5, 238.626 )
+states/idle/node = SubResource( 18 )
+states/idle/position = Vector2( 410.422, 168 )
+transitions = [ "idle", "Caminar", SubResource( 19 ), "Caminar", "idle", SubResource( 20 ), "idle", "Morir", SubResource( 21 ), "idle", "Patada", SubResource( 22 ), "Patada", "idle", SubResource( 23 ), "idle", "PatadaFuerte", SubResource( 24 ), "PatadaFuerte", "idle", SubResource( 25 ), "idle", "Pose", SubResource( 26 ), "idle", "Puñete", SubResource( 27 ), "Puñete", "idle", SubResource( 28 ), "Roll", "idle", SubResource( 29 ), "idle", "Roll", SubResource( 30 ) ]
+start_node = "idle"
+graph_offset = Vector2( 91.3499, 89.0658 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=9]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Caminar"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ), ExtResource( 10 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 17 ), ExtResource( 22 ), ExtResource( 2 ), ExtResource( 10 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 17 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Morir"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Patada"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ), ExtResource( 14 ), ExtResource( 6 ), ExtResource( 23 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 33 ), ExtResource( 32 ), ExtResource( 34 ), ExtResource( 39 ), ExtResource( 2 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "PatadaFuerte"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ), ExtResource( 28 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 38 ), ExtResource( 29 ), ExtResource( 37 ), ExtResource( 30 ), ExtResource( 31 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Pose"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.501, 0.6, 0.7, 0.701, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ), ExtResource( 40 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 24 ), ExtResource( 4 ), ExtResource( 40 ), ExtResource( 24 ), ExtResource( 4 ), ExtResource( 25 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 2 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Punhete"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.701, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 18 ), ExtResource( 21 ), ExtResource( 7 ), ExtResource( 19 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 20 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 20 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Roll"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 41 ), ExtResource( 44 ), ExtResource( 46 ), ExtResource( 45 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 46 ), ExtResource( 44 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 20 ) ]
+}
+
+[node name="karateka" type="KinematicBody2D"]
+position = Vector2( -4, 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Background3" type="Sprite" parent="."]
+visible = false
+position = Vector2( -0.499996, -1.00002 )
+scale = Vector2( 1.06979, 1.24167 )
+texture = ExtResource( 16 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -275, 65 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 20 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -279, 66 )
+scale = Vector2( 80, 80 )
+shape = SubResource( 31 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 8 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 9 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Caminar = SubResource( 1 )
+anims/Morir = SubResource( 2 )
+anims/Patada = SubResource( 3 )
+anims/PatadaFuerte = SubResource( 4 )
+anims/Pose = SubResource( 5 )
+anims/Punhete = SubResource( 6 )
+anims/Roll = SubResource( 7 )
+anims/idle = SubResource( 10 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true

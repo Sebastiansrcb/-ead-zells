@@ -1,44 +1,72 @@
 extends KinematicBody2D
 
-var Vida := 200
+var Vida := 150
 var speed := 120
 var aceleracion := 200
 var direccion := 0.0
 var salto := 250
 var velocidad := Vector2.ZERO
 const gravedad := 35
+var forgod = true
 
-onready var anim := $AnimationPlayer
+
 onready var sprite := $Sprite
 onready var state_machine = $AnimationTree.get("parameters/playback")
 
-func _physics_process(delta):
+func _physics_process(_delta) -> void:
+	
 	
 	if $Izquierda.is_colliding():
 		$Sprite.flip_h = false
-		print("estas cerca")
+		$HitIzquierda.position.x = -9
+		print("Ataque planta izquierda")
 		state_machine.travel("Ataque")
-		
-	if $Derecha.is_colliding():
+		velocidad.x = 0
+	elif $Derecha.is_colliding():
 		$Sprite.flip_h = true
-		print("estas cerca")
+		$HitDerecha.position.x = 9
+		print("Ataque planta derecha")
 		state_machine.travel("Ataque")
-		
-	sprite.flip_h = direccion > 0 if direccion != 0 else sprite.flip_h
+	else: 
+		if is_on_wall():
+			forgod = not forgod
 	
+		if forgod == true:
+			velocidad.x = -50
+			$Sprite.flip_h = false
+			state_machine.travel("Walk")
+		else:
+			velocidad.x = 50
+			$Sprite.flip_h = true
+			state_machine.travel("Walk")
+	#morir
+	if Vida <= 0:
+		state_machine.travel("Dead")
+		velocidad.x=0
+		velocidad.y=0
+		
 	velocidad.y = velocidad.y + gravedad
 	# Control de direccion
 	sprite.flip_h = direccion > 0 if direccion != 0 else sprite.flip_h
 	velocidad = move_and_slide(velocidad, Vector2.UP)
 	velocidad.x = lerp(velocidad.x, 0, 0.2)
+
+func take_damage():
+	Vida -= 1
+	print("health: ", Vida)
 	
-	func _on_Timer_timeout():
-	#print("patrullar!")
-	# calcular una nueva posicion aleatoria dentro del rango para moverse
-	target_position = Vector2(rand_range(0, move_range), rand_range(0, move_range))
-	state_machine.travel("Walk")
-	# definir una duracion aleatoria entre 10 y 20 segundos
-	var duration = rand_range(10, 20)
-	#print("esperando ", duration, " segundos")
-	# iniciar el timer con esa duracion
-	timer.start(duration)
+
+func _on_Hurtbox_area_entered(area):
+	take_damage()
+	print(area.collision_layer,"-",area.collision_mask)
+
+
+
+
+
+
+
+
+
+
+

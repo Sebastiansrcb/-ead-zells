@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=2]
+[gd_scene load_steps=91 format=2]
 
 [ext_resource path="res://Wanderer Magican/Idle6.png" type="Texture" id=1]
 [ext_resource path="res://Wanderer Magican/Walk4.png" type="Texture" id=2]
@@ -53,6 +53,7 @@
 [ext_resource path="res://Wanderer Magican/Hurt4.png" type="Texture" id=52]
 [ext_resource path="res://Wanderer Magican/Attack_23.png" type="Texture" id=53]
 [ext_resource path="res://scenes/characters/PlayerM.gd" type="Script" id=54]
+[ext_resource path="res://environment/PixelFantasy_Caves_1.0/background1.png" type="Texture" id=55]
 
 [sub_resource type="CapsuleShape2D" id=36]
 radius = 8.0
@@ -73,6 +74,30 @@ tracks/0/keys = {
 "update": 1,
 "values": [ ExtResource( 8 ), ExtResource( 51 ), ExtResource( 32 ), ExtResource( 39 ), ExtResource( 49 ), ExtResource( 41 ), ExtResource( 38 ), ExtResource( 37 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("HitA1:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false, false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HitA1:shape:radius")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 35.0, 35.0 ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "Ataque2"
@@ -88,6 +113,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ ExtResource( 8 ), ExtResource( 51 ), ExtResource( 32 ), ExtResource( 53 ), ExtResource( 40 ), ExtResource( 42 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 44 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("HitA2:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false, false, true ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -173,6 +210,42 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=9]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("HitA1:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("HitA1:shape:radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 25.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HitA2:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=10]
 resource_name = "Walk"
@@ -266,7 +339,7 @@ states/Dead/position = Vector2( 573.222, 65.6667 )
 states/Hurt/node = SubResource( 16 )
 states/Hurt/position = Vector2( 359, 35.5432 )
 states/Idle/node = SubResource( 17 )
-states/Idle/position = Vector2( 573.667, -50.3333 )
+states/Idle/position = Vector2( 573.074, -50.3333 )
 states/Jump/node = SubResource( 18 )
 states/Jump/position = Vector2( 311, -99.6667 )
 states/Walk/node = SubResource( 19 )
@@ -277,14 +350,26 @@ graph_offset = Vector2( 0, -152.257 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=35]
 
+[sub_resource type="CircleShape2D" id=37]
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id=38]
+radius = 22.7058
+
 [node name="PlayerM" type="KinematicBody2D"]
+scale = Vector2( 1.5, 1.5 )
+collision_mask = 5
 script = ExtResource( 54 )
 __meta__ = {
 "_edit_group_": true
 }
 
+[node name="Sprite2" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 55 )
+
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 13 )
+texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1, 1 )
@@ -307,5 +392,14 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 35 )
 
+[node name="HitA1" type="CollisionShape2D" parent="."]
+position = Vector2( 29.3333, -12.6667 )
+shape = SubResource( 37 )
+disabled = true
+
+[node name="HitA2" type="CollisionShape2D" parent="."]
+position = Vector2( 40, -8.66667 )
+shape = SubResource( 38 )
+disabled = true
+
 [node name="Camera2D" type="Camera2D" parent="."]
-current = true

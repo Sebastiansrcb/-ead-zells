@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://Enemigo1/Deathe1 (6).png" type="Texture" id=1]
 [ext_resource path="res://Enemigo1/Attacke1 (6).png" type="Texture" id=2]
@@ -30,7 +30,7 @@
 
 [sub_resource type="CapsuleShape2D" id=22]
 radius = 26.0
-height = 0.0
+height = 0.01
 
 [sub_resource type="Animation" id=2]
 resource_name = "Ataque"
@@ -46,6 +46,54 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ ExtResource( 21 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 7 ), ExtResource( 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("HitIzquierda:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HitIzquierda:cast_to")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -35, 0 ), Vector2( -35, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HitDerecha:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true, true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("HitDerecha:cast_to")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 35, 0 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -95,6 +143,69 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ ExtResource( 21 ), ExtResource( 13 ), ExtResource( 22 ), ExtResource( 23 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("HitIzquierda:enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("HitIzquierda:cast_to")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -35, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Izquierda:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HitDerecha:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("HitDerecha:cast_to")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 35, 0 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -162,22 +273,24 @@ states/Walk/node = SubResource( 11 )
 states/Walk/position = Vector2( 623.412, 39 )
 transitions = [ "Idle", "Walk", SubResource( 12 ), "Idle", "Hurt", SubResource( 13 ), "Idle", "Dead", SubResource( 14 ), "Idle", "Ataque", SubResource( 15 ), "Hurt", "Idle", SubResource( 16 ), "Ataque", "Idle", SubResource( 17 ), "Walk", "Idle", SubResource( 18 ) ]
 start_node = "Idle"
-graph_offset = Vector2( 0, 71.6177 )
+graph_offset = Vector2( 0, 16.2767 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=21]
 
 [node name="Enemigo1" type="KinematicBody2D"]
 position = Vector2( 0, -3 )
 scale = Vector2( 2, 2 )
+collision_mask = 5
 script = ExtResource( 27 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 13 )
+texture = ExtResource( 22 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( -2, -6 )
 shape = SubResource( 22 )
 
@@ -186,6 +299,7 @@ anims/Ataque = SubResource( 2 )
 anims/Dead = SubResource( 3 )
 anims/Hurt = SubResource( 4 )
 anims/Idle = SubResource( 5 )
+anims/RESET = SubResource( 23 )
 anims/Walk = SubResource( 6 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
@@ -201,3 +315,10 @@ cast_to = Vector2( 60, 0 )
 [node name="Izquierda" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( -60, 0 )
+
+[node name="HitIzquierda" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( -35, 0 )
+
+[node name="HitDerecha" type="RayCast2D" parent="."]
+cast_to = Vector2( 35, 0 )

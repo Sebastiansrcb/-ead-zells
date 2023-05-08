@@ -1,7 +1,8 @@
 extends KinematicBody2D
 
+var vida := 100
 var speed := 120
-var aceleracion := 200
+var aceleracion := 300
 var direccion := 0.0
 var salto := -1000
 var velocidad := Vector2.ZERO
@@ -12,12 +13,13 @@ onready var sprite := $Sprite
 onready var state_machine = $AnimationTree.get("parameters/playback")
 
 func _physics_process(delta):
+	
 	direccion = Input.get_axis("ui_left","ui_right")
 	velocidad.x = direccion * speed
 	#Caminar
 	if direccion != 0:
 		state_machine.travel("Walk")
-	#Correr
+	#Correr 
 	elif Input.is_action_pressed("sprint"):
 		state_machine.travel("Correr")
 		velocidad.x = aceleracion
@@ -27,10 +29,12 @@ func _physics_process(delta):
 		velocidad.y = salto
 	#Ataque leve
 	elif Input.is_action_just_pressed("ataque"):
-		state_machine.travel("Ataque1")
+		state_machine.travel("Ataque2")
+		print("ataqueMagico")
 	#Ataque Fuerte
 	elif Input.is_action_just_pressed("ataqueFuerte"):
-		state_machine.travel("Ataque2")
+		state_machine.travel("Ataque1")
+		print("ataqueSuperMagico")
 	#Bloquear
 	elif Input.is_action_pressed("bloquear"):
 		state_machine.travel("Hurt")
@@ -47,4 +51,17 @@ func _physics_process(delta):
 	velocidad = move_and_slide(velocidad, Vector2.UP)
 	velocidad.x = lerp(velocidad.x, 0, 0.2)
 	
+	#morir
+	if vida <= 0:
+		state_machine.travel("Dead")
+		velocidad.x=0
+		velocidad.y=0
+func take_damage():
+	vida -= 1
+	print("health: ", vida)
+	
+
+func _on_Hurtbox_area_entered(area):
+	take_damage()
+	print(area.collision_layer,"-",area.collision_mask)
 	
